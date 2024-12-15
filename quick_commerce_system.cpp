@@ -119,30 +119,42 @@ class User {
         }
         
         void trackOrder() {
+            
             cout << "Remaining Time: " << (orderHistory.back()).getRemainingTime()<<endl;
+            (orderHistory.back()).displayDeliveryDetails();
         }
 };
 
 
 void showMenu(vector<Product> menu) {
-    cout << "Product Name" << "\t" << "Product Price" << endl;
+    cout << "Product Name" << "\t\t\t\t" << "Product Price" << endl;
     for (int i=0; i< menu.size();i++) {
         Product x = menu[i];
-        cout <<i+1<<". "<< x.getProductName() << "\t\t\t\t" << x.getPrice()<< endl;
+        cout <<i+1<<". "<< x.getProductName() << "\t\t\t\t\t\t" << x.getPrice()<< endl;
     }
 }
 
 vector<DeliveryPerson> availableStaff = {
-    DeliveryPerson("aaa", 9090909),
-    DeliveryPerson("bbb", 9090901),
-    DeliveryPerson("ccc", 9090902),
-    DeliveryPerson("ddd", 9090903),
+    DeliveryPerson("Abhi", 9090909),
+    DeliveryPerson("Ram", 9090901),
+    DeliveryPerson("Rahul", 9090902),
+    DeliveryPerson("Ravi", 9090903),
+    DeliveryPerson("Amit", 9090903),
+    DeliveryPerson("Sameer", 9090903),
+    DeliveryPerson("Soham", 9090903),
 };
 vector<Product> menu = {
-    Product("aa", 10),
-    Product("bb", 20),
-    Product("cc", 30),
-    Product("dd", 40),
+    Product("Apple", 10),
+    Product("Banana", 20),
+    Product("Bread", 60),
+    Product("Litchi",60 ),
+    Product("Kiwi  ", 50),
+    Product("Butter", 50),
+    Product("Milk  ", 55),
+    Product("Parle G", 40),
+    Product("Walnuts", 70),
+    Product("Almonds", 50),
+    Product("Cheery", 50),
 };
 
 int main(){
@@ -152,16 +164,22 @@ int main(){
     
     int choice = 0;
     while(choice != 4){
-        cout << endl << "Quick Commerce System" << endl;
-        cout << endl;
+        cout << endl<<"--------------------";
+        cout << endl << "QUICK COMMERCE SYSTEM" << endl;
+        cout << "--------------------"<<endl;
+        cout<< "Choose from the below options,"<<endl;
+        // cout << "--------------------"<<endl;
         cout << "1. Place Order" << endl;
         cout << "2. Order History" << endl;
         cout << "3. Track Last Order" << endl;
-        cout << "Enter Choice: ";
+        cout << "--------------------"<<endl;
+        cout << "Enter Your Choice: ";
         cin >> choice ;
         
         if (choice == 1) {
-            // vector<Product> addedProducts;
+            cout <<endl<< "--------------------"<<endl;
+            cout << "CHOOSE FROM THE MENU"<<endl;
+            cout << "--------------------"<<endl;
             showMenu(menu);
             Cart userCart;
             cout << endl << "Enter item indexes to be added to the cart, followed by a '0' to confirm."<< endl;
